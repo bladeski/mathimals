@@ -1,5 +1,5 @@
-# Lego Club Challenges
+# Mathimals
 
 ## About
 
-This is a small repo to display a countdown timer along with a challenge, which can be used for our local LEGO club!
+Complete maths challenges to earn money and build a zoo.

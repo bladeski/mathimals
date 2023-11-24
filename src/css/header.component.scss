@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem;
+
+  z-index: 1;
+
+  h1 {
+    margin: 0;
+  }
+
+  .material-symbols-outlined {
+    font-size: 2rem;
+  }
+
+  .coins {
+    display: flex;
+    align-items: flex-end;
+
+    color: #cfb016;
+    font-size: 2rem;
+    font-weight: 700;
+
+    -webkit-text-stroke: 2px #b5a140;
+    -webkit-text-fill-color: #cfb016;
+    gap: $padding-small;
+  }
+}

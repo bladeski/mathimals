@@ -1,0 +1,44 @@
+{
+  "name": "mathimals",
+  "version": "0.0.0",
+  "description": "Complete maths challenges to earn money and build a zoo.",
+  "author": "Benjamin & Jonathan Blades",
+  "license": "MIT",
+  "source": "src/index.pug",
+  "type": "module",
+  "scripts": {
+    "clean:dist": "rimraf dist",
+    "clean:dist-serve": "rimraf dist-serve",
+    "start": "npm run clean:dist-serve && parcel serve src/index.pug src/robots.txt --dist-dir dist-serve --port 1236",
+    "build": "npm run clean:dist && parcel build src/index.pug src/robots.txt --no-source-maps --public-url /lego-club",
+    "eslint": "eslint src/**/*.ts",
+    "eslint:fix": "eslint src/**/*.ts --fix",
+    "prettier": "prettier --check src/**/*.ts",
+    "prettier:write": "prettier --write src/**/*.ts",
+    "lint": "yarn prettier && yarn eslint",
+    "lint:write": "yarn eslint:fix && yarn prettier:write"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "devDependencies": {
+    "@parcel/transformer-pug": "2.10.3",
+    "@parcel/transformer-sass": "2.10.3",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-sort-class-members": "^1.16.0",
+    "parcel": "^2.10.3",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@types/canvas-confetti": "^1.4.3",
+    "canvas-confetti": "^1.6.0",
+    "rxjs": "^7.8.1"
+  },
+  "staticFiles": {
+    "staticPath": "src/assets",
+    "staticOutPath": "assets"
+  }
+}

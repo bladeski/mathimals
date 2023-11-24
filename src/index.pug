@@ -1,0 +1,18 @@
+doctype html
+html(lang="en-GB")
+  head
+    include templates/head.pug
+  body
+    main 
+    
+    
+
+  .templates 
+    template#TemplateMainBg
+      include templates/main-bg.pug
+    template#TemplateHeader
+      include templates/header.pug
+    template#TemplateAnimalCard 
+      include templates/animal-card.pug
+    
+  script(src="./scripts/index.ts" type="module")

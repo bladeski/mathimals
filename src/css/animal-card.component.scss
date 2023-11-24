@@ -1,0 +1,26 @@
+.animal-card-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  border: 3px solid;
+  border-radius: 10px;
+
+  background-color: white;
+
+  font-weight: 700;
+
+  gap: 1rem;
+
+  img {
+    height: 200px;
+  }
+
+  span {
+    font-weight: 400;
+  }
+}

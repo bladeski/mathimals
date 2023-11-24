@@ -1,0 +1,48 @@
+.home-component {
+  .sun {
+    position: absolute;
+    top: calc((var(--sun-radius) / -2) + 1rem);
+    right: calc((var(--sun-radius) / -2) + 1rem);
+    width: var(--sun-radius);
+    height: var(--sun-radius);
+
+    border-radius: 50%;
+
+    background-color: #f3f300;
+
+    --sun-radius: 15rem;
+  }
+
+  .grass-circle {
+    &.centred {
+      > svg {
+        top: -100%;
+      }
+    }
+
+    > svg {
+      position: absolute;
+      top: 40%;
+      right: -50%;
+      left: -50%;
+
+      transition: all 400ms ease-in-out;
+
+      // fill: #3ecf4d;
+
+      text.area {
+        text-align: center;
+      }
+    }
+  }
+
+  .controls {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+}

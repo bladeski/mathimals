@@ -4,14 +4,14 @@ export const ZooAreas: ZooArea[] = [
   {
     id: 1,
     name: 'Grasslands',
-    animals: [3, 11, 15, 25, 27, 30, 31, 39, 43, 48, 53, 60, 61, 81, 97, 98, 100],
+    animals: [3, 11, 15, 25, 27, 30, 31, 39, 43, 48, 53, 60, 61, 81, 92, 98, 100],
     decorations: [],
     enclosures: [],
   },
   {
     id: 2,
     name: 'Savanna',
-    animals: [1, 2, 10, 24, 52, 56, 65, 67, 68, 72, 99, 100],
+    animals: [1, 2, 10, 24, 52, 56, 65, 67, 68, 99, 100],
     decorations: [],
     enclosures: [],
   },
@@ -19,7 +19,7 @@ export const ZooAreas: ZooArea[] = [
     id: 3,
     name: 'Water World',
     animals: [
-      4, 5, 8, 17, 26, 28, 29, 34, 36, 45, 50, 63, 69, 71, 77, 82, 84, 85, 86, 88,
+      4, 5, 8, 17, 26, 28, 29, 34, 36, 45, 50, 63, 69, 77, 82, 84, 85, 86, 88,
       95,
     ],
     decorations: [],
@@ -28,7 +28,7 @@ export const ZooAreas: ZooArea[] = [
   {
     id: 4,
     name: 'Desert',
-    animals: [12, 54, 91, 94],
+    animals: [12, 54, 58, 91, 94, 97],
     decorations: [],
     enclosures: [],
   },
@@ -36,7 +36,7 @@ export const ZooAreas: ZooArea[] = [
     id: 5,
     name: 'Tropical Jungle',
     animals: [
-      7, 13, 18, 38, 41, 44, 46, 47, 49, 58, 62, 70, 74, 76, 80, 89, 96,
+      7, 13, 18, 38, 41, 44, 46, 47, 49, 62, 70, 74, 76, 80, 89, 96,
     ],
     decorations: [],
     enclosures: [],
@@ -45,7 +45,7 @@ export const ZooAreas: ZooArea[] = [
     id: 6,
     name: 'Forest',
     animals: [
-      6, 14, 19, 20, 21, 22, 32, 33, 35, 40, 42, 55, 57, 64, 78, 79, 92, 93,
+      6, 14, 19, 20, 21, 22, 32, 33, 35, 40, 42, 55, 57, 64, 78, 79, 93,
     ],
     decorations: [],
     enclosures: [],
@@ -60,7 +60,7 @@ export const ZooAreas: ZooArea[] = [
   {
     id: 8,
     name: 'Polar',
-    animals: [16, 37, 73, 75, 90],
+    animals: [16, 37, 71, 72, 73, 75, 90],
     decorations: [],
     enclosures: [],
   },

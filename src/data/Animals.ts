@@ -1,4 +1,5 @@
 import { Animal } from '../scripts/models';
+import { EndangeredStatus } from '../scripts/enums';
 
 export const Animals: Animal[] = [
   {
@@ -7,7 +8,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 2,
@@ -15,7 +16,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 3,
@@ -23,15 +24,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 4,
-      name: "Alligator",
+      name: "American Alligator",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 5,
@@ -39,7 +40,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 6,
@@ -47,7 +48,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 7,
@@ -55,7 +56,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 8,
@@ -63,7 +64,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 9,
@@ -71,7 +72,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 10,
@@ -79,7 +80,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 11,
@@ -87,7 +88,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 12,
@@ -95,7 +96,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 13,
@@ -103,7 +104,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 14,
@@ -111,7 +112,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 15,
@@ -119,7 +120,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 16,
@@ -127,7 +128,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 17,
@@ -135,7 +136,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 18,
@@ -143,7 +144,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 19,
@@ -151,7 +152,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 20,
@@ -159,7 +160,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 21,
@@ -167,15 +168,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 22,
-      name: "Cobra",
+      name: "Chinese Cobra",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 23,
@@ -183,7 +184,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 24,
@@ -191,7 +192,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 25,
@@ -199,7 +200,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 26,
@@ -207,7 +208,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 27,
@@ -215,7 +216,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 28,
@@ -223,7 +224,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.NEAR_THREATENED
   },
   {
       id: 29,
@@ -231,7 +232,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 30,
@@ -239,7 +240,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 31,
@@ -247,7 +248,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 32,
@@ -255,15 +256,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 33,
-      name: "European Fallow Deer",
+      name: "Persian Fallow Deer",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 34,
@@ -271,7 +272,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 35,
@@ -279,7 +280,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 36,
@@ -287,7 +288,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 37,
@@ -295,7 +296,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 38,
@@ -303,7 +304,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 39,
@@ -311,7 +312,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 40,
@@ -319,7 +320,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 41,
@@ -327,7 +328,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 42,
@@ -335,7 +336,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 43,
@@ -343,15 +344,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 44,
-      name: "Gorilla",
+      name: "Grauer's Gorilla",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 45,
@@ -359,7 +360,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 46,
@@ -367,7 +368,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 47,
@@ -375,7 +376,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 48,
@@ -383,7 +384,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 49,
@@ -391,7 +392,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 50,
@@ -399,7 +400,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 51,
@@ -407,15 +408,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 52,
-      name: "Tapir",
+      name: "Malay Tapir",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 53,
@@ -423,7 +424,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 54,
@@ -431,7 +432,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 55,
@@ -439,7 +440,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 56,
@@ -447,7 +448,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 57,
@@ -455,15 +456,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 58,
-      name: "Leafcutter Ant",
+      name: "Scorpion",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 59,
@@ -471,7 +472,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 60,
@@ -479,7 +480,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 61,
@@ -487,23 +488,23 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 62,
-      name: "Macaw",
+      name: "Glaucous Macaw",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 63,
-      name: "Manta Ray",
+      name: "Reef Manta Ray",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 64,
@@ -511,7 +512,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 65,
@@ -519,7 +520,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 66,
@@ -527,7 +528,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 67,
@@ -535,7 +536,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 68,
@@ -543,7 +544,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 69,
@@ -551,7 +552,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 70,
@@ -559,23 +560,23 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.CRITICALLY_ENDANGERED
   },
   {
       id: 71,
-      name: "Pancake Tortoise",
+      name: "Artic Fox",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 72,
-      name: "Plains Zebra",
+      name: "Atlantic Puffin",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 73,
@@ -583,7 +584,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.DATA_DEFICIENT
   },
   {
       id: 74,
@@ -591,7 +592,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 75,
@@ -599,15 +600,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 76,
-      name: "Praying Mantis",
+      name: "Pau's Dwarf Mantis",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.NEAR_THREATENED
   },
   {
       id: 77,
@@ -615,7 +616,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 78,
@@ -623,7 +624,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 79,
@@ -631,7 +632,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 80,
@@ -639,7 +640,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 81,
@@ -647,7 +648,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 82,
@@ -655,7 +656,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 83,
@@ -663,15 +664,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 84,
-      name: "Sea Lion",
+      name: "Californian Sea Lion",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 85,
@@ -679,7 +680,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 86,
@@ -687,7 +688,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 87,
@@ -695,7 +696,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 88,
@@ -703,7 +704,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 89,
@@ -711,7 +712,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 90,
@@ -719,7 +720,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 91,
@@ -727,15 +728,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 92,
-      name: "American Black Bear",
+      name: "Alpine Marmot",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 93,
@@ -743,23 +744,23 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.ENDANGERED
   },
   {
       id: 94,
-      name: "Tarantula",
+      name: "Argentine Fossor Tarantula",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.VULNERABLE
   },
   {
       id: 95,
-      name: "Toucan",
+      name: "Toco Toucan",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 96,
@@ -767,15 +768,15 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 97,
-      name: "Utah Prairie Dog",
+      name: "Spotted Bat",
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 98,
@@ -783,7 +784,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 99,
@@ -791,7 +792,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.NEAR_THREATENED
   },
   {
       id: 100,
@@ -799,7 +800,7 @@ export const Animals: Animal[] = [
       cost: 0,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.LEAST_CONCERN
   },
   {
       id: 1000,
@@ -807,7 +808,7 @@ export const Animals: Animal[] = [
       cost: 1000,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.NOT_EVALUATED
   },
   {
       id: 1001,
@@ -815,6 +816,6 @@ export const Animals: Animal[] = [
       cost: 1000,
       happiness: 5,
       facts: [],
-      endangeredStatus: 0
+      endangeredStatus: EndangeredStatus.NOT_EVALUATED
   },
 ]

@@ -1,6 +1,8 @@
 import { Difficulty } from '../enums';
 
 export class Level {
-  completedQuestions = 0;
-  difficulty: Difficulty = Difficulty.EASY;
+  [Difficulty.EASY]: [number, number] = [0,0];
+  [Difficulty.MEDIUM]: [number, number] = [0,0];
+  [Difficulty.HARD]: [number, number] = [0,0];
+  [Difficulty.MASTER]: [number, number] = [0,0];
 }

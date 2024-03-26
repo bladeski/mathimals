@@ -1,8 +1,11 @@
 import { BasicType } from '.';
 
 export type Enclosure = BasicType & {
-  animalIds: number[];
-  maxAnimals: number;
-  animals: number;
+  animals: {
+    id: number;
+    count: number;
+    maxCount: number;
+  }[];
   cost: number;
+  unlocked: boolean;
 };

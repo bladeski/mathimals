@@ -1,0 +1,47 @@
+.sum-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $padding-standard;
+
+  &.correct {
+    .sum {
+      color: $success-colour;
+    }
+  }
+
+  &.incorrect {
+    .sum {
+      color: $danger-colour;
+    }
+  }
+
+  .reward-wrapper,
+  .sum,
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $padding-standard;
+
+    font-size: $font-size-xxl;
+    font-weight: 700;
+  }
+
+  .reward-wrapper {
+    margin-top: 20%;
+    font-size: $font-size-xl;
+  }
+
+  .options {
+    font-size: $font-size-xl;
+    gap: $padding-large;
+
+    > span {
+      padding: $padding-standard;
+      cursor: pointer;
+      line-height: 1;
+    }
+  }
+}

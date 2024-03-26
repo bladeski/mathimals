@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   width: 700px;
-  margin: 0 auto;
   padding: 2rem;
 
   border: 3px solid;
@@ -16,11 +15,87 @@
 
   gap: 1rem;
 
-  img {
-    height: 200px;
+  .background {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+
+    border-radius: 125px;
+
+    background-color: rgba(96, 211, 247, 0.2);
+
+    z-index: 0;
   }
 
-  span {
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    gap: $padding-standard;
+  }
+
+  .count {
+    flex-grow: 1;
+  }
+
+  img {
+    max-width: calc(700px - 4rem);
+    height: 200px;
+
+    z-index: 1;
+  }
+
+  span.endangered-status {
+    min-width: max-content;
+    padding: $padding-small;
+
+    border-radius: $border-radius;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: $font-size-s;
+    line-height: 1;
+    text-transform: uppercase;
+
+    &.success {
+      background-color: $success-colour-background;
+
+      color: $success-colour;
+    }
+
+    &.warning {
+      background-color: $warning-colour-background;
+
+      color: $warning-colour;
+    }
+
+    &.danger {
+      background-color: $danger-colour-background;
+
+      color: $danger-colour;
+    }
+
+    &.dark {
+      background-color: $primary-font-colour;
+
+      color: $background-colour;
+    }
+
+    &.info {
+      background-color: $info-colour-background;
+
+      color: $info-colour;
+    }
+  }
+
+  span.area-name {
     font-weight: 400;
+  }
+
+  span.cost {
+    margin-right: $padding-large;
   }
 }

@@ -1,5 +1,7 @@
+import { GatesComponent, HeaderComponent } from './components';
+
 import { DomHelper } from './helpers/DomHelper';
-import { HeaderComponent } from './components';
+import { GateOpen } from './enums';
 import { HomeComponent } from './components/Home.component';
 import { StateService } from './services';
 import { first } from 'rxjs';
@@ -11,21 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const headerComponent = new HeaderComponent();
     const homeComponent = new HomeComponent();
+    const gatesComponent = new GatesComponent();
 
-    // StateService.animalsAndAreas$.subscribe(([animals, areas]) => {
-    //   const areaIndex = Math.round(Math.random() * (areas.length - 1));
-    //   const animalIndex = Math.round(Math.random() * (areas[areaIndex].animals.length - 1));
-    //   const animal = animals.find(animal => animal.id === areas[areaIndex].animals[animalIndex]);
-
-    //   if (animal) {
-    //     const wrapper = document.createElement('div');
-    //     wrapper.className = 'animal-card-wrapper';
-
-    //     const animalComponent = new AnimalCardComponent(animal, areas[areaIndex].name, wrapper);
-
-
-    //   }
-    // });
+    
   });
 
   StateService.zooName$.pipe(first()).subscribe(name => {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 174 88">
+  <defs>
+    <radialGradient id="radial-gradient" cx="-153.69" cy="513.33" fx="-153.69" fy="513.33" r="88.52" gradientTransform="translate(241.28 -425.9)" gradientUnits="userSpaceOnUse">
+      <stop offset=".68" stop-color="#da3d8e"/>
+      <stop offset=".71" stop-color="#c33d9b"/>
+      <stop offset=".77" stop-color="#883dbc"/>
+      <stop offset=".77" stop-color="#863dbe"/>
+      <stop offset=".83" stop-color="#153eff"/>
+      <stop offset=".88" stop-color="#75b72a"/>
+      <stop offset=".92" stop-color="#eee535"/>
+      <stop offset="1" stop-color="#e52d12"/>
+    </radialGradient>
+  </defs>
+  <g id="areas">
+    <g id="rainbow-group">
+      <path id="rainbow" d="M87,0C39,0,0,39,0,87v1s21,0,21,0v-1c0-36.5,29.5-66,66-66,36.5,0,66,29.5,66,66v1s21,0,21,0v-1C174,39,135.1,0,87,0h0Z" style="fill: url(#radial-gradient); stroke-width: 0px;"/>
+    </g>
+  </g>
+</svg>

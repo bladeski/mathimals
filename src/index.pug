@@ -2,17 +2,23 @@ doctype html
 html(lang="en-GB")
   head
     include templates/head.pug
-  body
-    main 
-    
-    
+  body.home
+    main
 
   .templates 
+    template#TemplateGates
+      include templates/gates.pug
     template#TemplateMainBg
-      include templates/main-bg.pug
+      include templates/home.pug
     template#TemplateHeader
       include templates/header.pug
     template#TemplateAnimalCard 
       include templates/animal-card.pug
+    template#TemplateZooArea 
+      include templates/zoo-area.pug
+    template#TemplateSum 
+      include templates/sum.pug
+    template#TemplateLevelSelect 
+      include templates/level-select.pug
     
   script(src="./scripts/index.ts" type="module")

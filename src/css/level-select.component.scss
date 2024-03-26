@@ -1,0 +1,23 @@
+.level-select-component {
+    position: absolute;
+    padding: 2rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.2);
+
+    form {
+        padding: $padding-large;
+        background-color: $secondary-background-colour;
+        display: flex;
+        flex-direction: column;
+        gap: $padding-standard;
+        border-radius: $border-radius;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.7);
+    }
+}

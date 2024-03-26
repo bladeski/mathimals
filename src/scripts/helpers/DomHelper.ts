@@ -13,6 +13,10 @@ export class DomHelper {
     return document.createElement('div') as HTMLElement;
   }
 
+  static setMode(mode: string) {
+    document.body.className = mode;
+  }
+
   static updateTextContent(selector: string, text: string, parent: HTMLElement = document.body) {
     const element = parent.querySelector(selector);
     if (element) {

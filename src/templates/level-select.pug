@@ -1,0 +1,14 @@
+form
+  label(for="operator") Select Sum Type: 
+    select#operator(name="operator")
+      option(value="+") Addition 
+      option(value="-") Subtraction 
+      option(value="×") Multiplication
+      option(value="÷") Division 
+  label(for="difficulty") Select Difficulty: 
+    select#difficulty(name="difficulty")
+      option(value="0") Easy 
+      option(value="1") Medium 
+      option(value="2") Hard
+      option(value="3") Master 
+  button(type="button") Play

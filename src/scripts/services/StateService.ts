@@ -1,116 +1,180 @@
 import { Animal, BasicType, Decoration, Levels, ZooArea } from '../models';
 import { BehaviorSubject, Observable, combineLatest } from 'rxjs';
-import { Difficulty, Operator, StateProperty } from '../enums';
+import { CorrectState, Difficulty, GateOpen, Operator } from '../enums';
 
 import dataService from './DataService';
-import storageService from './StorageService';
 
 class StateService {
+
   public allAnimals$: Observable<Animal[]>;
+  public allAnimalsAndAreas$: Observable<[Animal[], ZooArea[]]>;
   public allDecorations$: Observable<Decoration[]>;
   public allZooAreas$: Observable<ZooArea[]>;
-  public animals$: Observable<Animal[]>;
-  public animalsAndAreas$: Observable<[Animal[], ZooArea[]]>;
-  public decorations$: Observable<Decoration[]>;
-  public food$: Observable<number>;
-  public levels$: Observable<Levels>;
+  public currentDifficulty$: Observable<Difficulty>;
+  public currentOperator$: Observable<Operator>;
+  public gateState$: Observable<GateOpen>;
   public ready$: Observable<boolean>;
-  public zooAreas$: Observable<ZooArea[]>;
-  public zooCoins$: Observable<number>;
+  public userDecorations$: Observable<Decoration[]>;
+  public userFood$: Observable<number>;
+  public userLevels$: Observable<Levels>;
+  public userZooCoins$: Observable<number>;
   public zooName$: Observable<string>;
 
-  private allAnimals: BehaviorSubject<Animal[]> = new BehaviorSubject([] as Animal[]);
-  private allDecorations: BehaviorSubject<Decoration[]> = new BehaviorSubject([] as Decoration[]);
-  private allZooAreas: BehaviorSubject<ZooArea[]> = new BehaviorSubject([] as ZooArea[]);
-  private animals: BehaviorSubject<Animal[]>;
-  private decorations: BehaviorSubject<Decoration[]>;
-  private food: BehaviorSubject<number>;
-  private levels: BehaviorSubject<Levels>;
+  private allAnimals: BehaviorSubject<Animal[]> = new BehaviorSubject<Animal[]>([]);
+  private allDecorations: BehaviorSubject<Decoration[]> = new BehaviorSubject<Decoration[]>([]);
+  private allZooAreas: BehaviorSubject<ZooArea[]> = new BehaviorSubject<ZooArea[]>([]);
+  private currentDifficulty: BehaviorSubject<Difficulty> = new BehaviorSubject<Difficulty>(Difficulty.EASY);
+  private currentOperator: BehaviorSubject<Operator> = new BehaviorSubject<Operator>(Operator.ADDITION);
+  private gateState: BehaviorSubject<GateOpen> = new BehaviorSubject<GateOpen>(GateOpen.CLOSED);
   private ready: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  private zooAreas: BehaviorSubject<ZooArea[]>;
-  private zooCoins: BehaviorSubject<number>;
-  private zooName: BehaviorSubject<string>;
+  private userDecorations: BehaviorSubject<Decoration[]> = new BehaviorSubject<Decoration[]>([]);
+  private userFood: BehaviorSubject<number> = new BehaviorSubject(0);
+  private userLevels: BehaviorSubject<Levels> = new BehaviorSubject(new Levels());
+  private userZooCoins: BehaviorSubject<number> = new BehaviorSubject(0);
+  private zooName: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor() {
     this.ready$ = this.ready.asObservable();
-
-    const loadedSettings = storageService.loadSettings();
     
-    this.animals = new BehaviorSubject(loadedSettings[StateProperty.ANIMALS]);
-    this.decorations = new BehaviorSubject(loadedSettings[StateProperty.DECORATIONS]);
-    this.zooAreas = new BehaviorSubject(loadedSettings[StateProperty.ZOO_AREAS]);
-    this.food = new BehaviorSubject(loadedSettings[StateProperty.FOOD]);
-    this.levels = new BehaviorSubject(loadedSettings[StateProperty.LEVELS] || new Levels());
-    this.zooCoins = new BehaviorSubject(loadedSettings[StateProperty.ZOO_COINS]);
-    this.zooName = new BehaviorSubject(loadedSettings[StateProperty.ZOO_NAME]);
-
     this.allAnimals$ = this.allAnimals.asObservable();
     this.allDecorations$ = this.allDecorations.asObservable();
     this.allZooAreas$ = this.allZooAreas.asObservable();
+    this.gateState$ = this.gateState.asObservable();
 
-    this.animals$ = this.animals.asObservable();
-    this.decorations$ = this.decorations.asObservable();
-    this.zooAreas$ = this.zooAreas.asObservable();
-    this.food$ = this.food.asObservable();
-    this.levels$ = this.levels.asObservable();
-    this.zooCoins$ = this.zooCoins.asObservable();
+    this.currentDifficulty$ = this.currentDifficulty.asObservable();
+    this.currentOperator$ = this.currentOperator.asObservable();
+    this.userDecorations$ = this.userDecorations.asObservable();
+    this.userFood$ = this.userFood.asObservable();
+    this.userLevels$ = this.userLevels.asObservable();
+    this.userZooCoins$ = this.userZooCoins.asObservable();
     this.zooName$ = this.zooName.asObservable();
-    this.animalsAndAreas$ = combineLatest([this.allAnimals$, this.allZooAreas$]);
+    this.allAnimalsAndAreas$ = combineLatest([this.allAnimals$, this.allZooAreas$]);
 
     Promise.all([
       dataService.getAnimals(),
       dataService.getDecorations(),
       dataService.getZooAreas(),
-    ]).then(([animals, decorations, zooAreas]) => {
+      dataService.getZooCoins(),
+      dataService.getCurrentDifficulty(),
+      dataService.getCurrentOperator(),
+      dataService.getLevels(),
+    ]).then(([animals, decorations, zooAreas, zooCoins, currentDifficulty, currentOperator, levels]) => {
       this.allAnimals.next(animals);
       this.allDecorations.next(decorations);
       this.allZooAreas.next(zooAreas);
+      this.userZooCoins.next(zooCoins);
+      this.currentDifficulty.next(currentDifficulty);
+      this.currentOperator.next(currentOperator);
+      this.userLevels.next(levels);
 
       this.ready.next(true);
     }).catch(err => console.log(err));
   }
 
-  updateAnimal(animal: Animal) {
-    const animals = this.updateArrayValue(animal, this.animals.getValue());
+  buyAnimal(animalId: number, areaId: number, count = 1) {
+    const animal = this.allAnimals.getValue().find(an => an.id === animalId);
+    const zooArea = this.getZooArea(areaId);
+    const enclosure = zooArea?.enclosures
+      .find(enclosure => enclosure.animals.some(an => an.id === animalId));
+    const enclosureAnimal = enclosure?.animals
+      .find(an => an.id === animalId);
 
-    this.animals.next(animals);
-    storageService.updateSetting(StateProperty.ANIMALS, animals);
+    if (animal
+      && animal.cost <= this.userZooCoins.getValue()
+      && zooArea
+      && enclosureAnimal
+      && (enclosureAnimal.count + count) <= enclosureAnimal.maxCount
+    ) {
+      this.updateZooCoins(-animal.cost);
+      enclosureAnimal.count += count;
+      this.updateZooArea(zooArea);
+    }
+  }
+
+  closeGate() {
+    this.gateState.next(GateOpen.CLOSING);
+  }
+
+  getAnimalById(animalId: number) {
+    return this.allAnimals.getValue().find(animal => animal.id === animalId);
+  }
+
+  getAnimalCount(animalId: number): number {
+    return this.allZooAreas.getValue().reduce((curr, next) => { 
+      return curr + next.enclosures.reduce((currEnc, nextEnc) => { 
+        return currEnc + (nextEnc.animals.find(animal => animal.id === animalId)?.count || 0);
+      }, 0);
+    }, 0);
+  }
+
+  getZooArea(areaId: number) {
+    return this.allZooAreas.getValue().find(area => area.id === areaId);
+  }
+
+  openGate() {
+    this.gateState.next(GateOpen.OPENING);
+  }
+
+  setGateState(state: GateOpen) {
+    this.gateState.next(state);
+  }
+
+  updateCurrentDifficulty(difficulty: Difficulty) {
+    if (difficulty in Difficulty) {
+      this.currentDifficulty.next(difficulty);
+      dataService.updateCurrentDifficulty(difficulty);
+
+    }
+  }
+
+  updateCurrentLevelCount(correctState: CorrectState) {
+    const levels = {
+      ...this.userLevels.getValue()
+    };
+    const operator = this.currentOperator.getValue();
+    const difficulty = this.currentDifficulty.getValue();
+
+    levels[operator][difficulty][correctState]++;
+    this.userLevels.next(levels);
+
+    // if (levels[operator][difficulty][correctState] >= 10) {
+    //   this.updateCurrentDifficulty(difficulty + 1);
+    // }
+
+    dataService.updateLevels(levels);
+  }
+
+  updateCurrentOperator(operator: Operator) {
+    this.currentOperator.next(operator);
+    dataService.updateCurrentOperator(operator);
   }
 
   updateDecoration(decoration: Decoration) {
-    const decorations = this.updateArrayValue(decoration, this.decorations.getValue());
-    this.decorations.next(decorations);
-    storageService.updateSetting(StateProperty.DECORATIONS, decorations);
+    const decorations = this.updateArrayValue(decoration, this.userDecorations.getValue());
+    this.userDecorations.next(decorations);
+    dataService.updateDecorations(decorations);
   }
 
   updateFood(value: number) {
-    this.food.next(value);
-    storageService.updateSetting(StateProperty.FOOD, value);
-  }
-
-  updateLevel(level: Operator, difficulty: Difficulty) {
-    const levels = {
-      ...this.levels.getValue(),
-      [level]: difficulty
-    };
-    this.levels.next(levels);
-    storageService.updateSetting(StateProperty.LEVELS, levels);
+    this.userFood.next(value);
+    dataService.updateFood(value);
   }
 
   updateZooArea(zooArea: ZooArea) {
-    const zooAreas = this.updateArrayValue(zooArea, this.zooAreas.getValue());
-    this.zooAreas.next(zooAreas);
-    storageService.updateSetting(StateProperty.ZOO_AREAS, zooAreas);
+    const zooAreas = this.updateArrayValue(zooArea, this.allZooAreas.getValue());
+    this.allZooAreas.next(zooAreas);
+    dataService.updateZooAreas(zooAreas);
   }
 
   updateZooCoins(value: number) {
-    this.zooCoins.next(value);
-    storageService.updateSetting(StateProperty.ZOO_COINS, value);
+    const newValue = this.userZooCoins.getValue() + value;
+    this.userZooCoins.next(newValue);
+    dataService.updateZooCoins(newValue);
   }
 
   updateZooName(value: string) {
     this.zooName.next(value);
-    storageService.updateSetting(StateProperty.ZOO_NAME, value);
+    dataService.updateZooName(value);
   }
 
   private updateArrayValue<T extends BasicType>(item: T, array: T[]): T[] {

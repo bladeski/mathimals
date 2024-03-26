@@ -1,0 +1,36 @@
+.zoo-area-component {
+  display: none;
+  flex-wrap: wrap;
+
+  gap: $padding-standard;
+
+  .enclosure {
+    padding: $padding-large;
+
+    border: 2px solid $primary-font-colour;
+  }
+
+  .animal-list {
+    display: flex;
+    position: absolute;
+    top: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    padding: $padding-large;
+    overflow: auto;
+
+    pointer-events: none;
+    z-index: 1;
+
+    gap: $padding-standard;
+
+    .animal-card-component {
+      pointer-events: all;
+    }
+  }
+}
+
+body.area .zoo-area-component {
+  display: flex;
+}

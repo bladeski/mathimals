@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Lato:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;700&display=swap');
 
 @import './vars.scss';
 
@@ -40,7 +41,14 @@ body {
   accent-color: var(--theme-accent);
 
   button {
+    padding: $padding-small $padding-standard;
+
+    border-radius: $border-radius;
+
+    background-color: transparent;
+
     color: var(--primary-font-colour);
+    font-family: $font-family;
 
     cursor: pointer;
 
@@ -55,12 +63,22 @@ body {
 
       box-shadow: none;
       transition: all 250ms ease-in-out;
+    }
 
-      &:hover {
-        background-color: rgba(255,255,255,0.5);
+    &:hover {
+      transform: scale(1.05);
 
-        box-shadow: 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-      }
+      background-color: rgba(255,255,255,0.5);
+
+      box-shadow: 0 1px 18px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: scale(1.02);
+
+      background-color: transparent;
+
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.7);
     }
   }
 }
@@ -87,44 +105,60 @@ h3 {
   font-size: $font-size-l;
 }
 
-svg {
+svg, 
+svg text {
   font-family: $font-family;
 }
 
+select {
+  font-family: $font-family;
+  font-size: $font-size-regular;
+  padding: $padding-small;
+  border-radius: $border-radius;
+}
+
+.card {
+  padding: $padding-standard;
+  background-color: white;
+  color: $primary-font-colour;
+  border-radius: $border-radius;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.7);
+}
+
 @import './header.component.scss';
+
+@import './gates.component.scss';
 
 @import './home.component.scss';
 
 @import './animal-card.component.scss';
 
-.animal-card-wrapper {
-  display: flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  align-items: center;
-  justify-content: center;
-}
+@import './sum.component.scss';
+
+@import './level-select.component.scss';
+
+@import './zoo-area.component.scss';
 
 @media screen and (min-width: 800px) {
   html,
-  body {
+  body,
+  button {
     font-size: $body-font-size + 2;
   }
 }
 
 @media screen and (min-width: 1200px) {
   html,
-  body {
+  body,
+  button {
     font-size: $body-font-size + 4;
   }
 }
 
 @media screen and (min-width: 1600px) {
   html,
-  body {
+  body,
+  button {
     font-size: $body-font-size + 6;
   }
 }

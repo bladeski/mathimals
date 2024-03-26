@@ -14,8 +14,8 @@ $font-size-xxl: 3.375rem;
 $font-size-xxxl: 5.063rem;
 $font-size-xxxxl: 7.594rem;
 $font-size-s: 0.667rem;
-$font-family: 'Josefin Sans', sans-serif;
-$heading-font-family: 'Josefin Sans', sans-serif;
+$font-family: 'Manrope', sans-serif;
+$heading-font-family: 'Manrope', sans-serif;
 
 // Colours
 $theme-colour: hsl(230, 71%, 24%);
@@ -36,4 +36,26 @@ $danger-colour-background: lighten($danger-colour, 40%);
 
 // Transitions
 $default-transition: 250ms ease-in-out;
-$confetti: #ca0000, #83ca00, #00cab9, #c300ca, #adab00, #ca0043
+$confetti: #ca0000, #83ca00, #00cab9, #c300ca, #adab00, #ca0043;
+
+:root {
+    --grass-bg: #3ECF4D;
+    --polar-bg: rgb(168, 190, 223);
+    --water-bg: #49A5DD;
+    --savanna-bg: #f4f804;
+    --desert-bg: #F7E719;
+    --legendary-bg: #3ECF4D;
+    --jungle-bg: darkgreen;
+    --forest-bg: darkgreen;
+    --grasslands-bg: #3ECF4D;
+    --farm-bg: #cfb43e;
+
+    // Circle variables
+    --circle-radius: 100vw;
+    --section-number: 0;
+    --section-count: 12;
+    --section-angle: calc(360deg / var(--section-count));
+    --section-angle-half: calc(var(--section-angle) / 2);
+    --section-width-multiplier: calc(sin(var(--section-angle-half)) * 2);
+    --section-height-multiplier: calc(cos(var(--section-angle-half)));
+}

@@ -1,4 +1,6 @@
 .home-component {
+  display: none;
+
   .sun {
     position: absolute;
     top: calc((var(--sun-radius) / -2) + 1rem);
@@ -14,22 +16,205 @@
   }
 
   .grass-circle {
-    &.centred {
-      > svg {
-        top: -100%;
+    position: absolute;
+    top: 40%;
+    left: -50%;
+    width: 200vw;
+    height: 200vw;
+    border-radius: 50%;
+    transition: all 400ms ease-in-out;
+    
+    background: conic-gradient(
+      var(--grass-bg) 0deg 15deg,
+      var(--polar-bg) 15deg 45deg,
+      var(--water-bg) 45deg 75deg,
+      var(--grass-bg) 75deg 105deg,
+      var(--savanna-bg) 105deg 135deg,
+      var(--desert-bg) 135deg 165deg,
+      var(--legendary-bg) 165deg 195deg,
+      var(--jungle-bg) 195deg 225deg,
+      var(--forest-bg) 225deg 255deg,
+      var(--grass-bg) 255deg 285deg,
+      var(--grasslands-bg) 285deg 315deg,
+      var(--farm-bg) 315deg 345deg,
+      var(--grass-bg) 345deg 360deg
+    );
+
+    // &[data-section="0"] {
+    //   transform: rotate(0deg);
+    // }
+
+    @for $i from 1 through 12 {
+      &[data-section="#{$i}"] {
+        transform: rotate(calc(-#{$i} * 30deg));
       }
     }
 
-    > svg {
+    .area {
+      cursor: pointer;
+      width: calc(var(--circle-radius) * var(--section-width-multiplier));
+      height: 20%;
+      // background-color: red;
       position: absolute;
-      top: 40%;
-      right: -50%;
-      left: -50%;
 
-      transition: all 400ms ease-in-out;
+      top: calc(var(--circle-radius) - var(--circle-radius) * var(--section-height-multiplier));
+      left: calc(var(--circle-radius) - var(--circle-radius) * var(--section-width-multiplier) / 2);
+      transform-origin: center calc(var(--circle-radius) * var(--section-height-multiplier));
+      transform: rotate(calc(var(--section-number) * var(--section-angle)));
 
-      text.area {
-        text-align: center;
+      &.play {
+        --section-number: 0;
+        // background: var(--grass-bg);
+
+        button {
+          width: unset;
+          left: unset;
+          position: relative;
+          margin: 0 auto;
+          span {
+            font-size: 5rem;
+          }
+        }
+      }
+
+      &.polar {
+        --section-number: 1;
+
+        .polar-bg {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3 * 2);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
+          top: -12%;
+        }
+
+        .polar-bear {
+          top: -15%;
+        }
+      }
+
+      &.water {
+        --section-number: 2;
+
+        .water-bg {
+          width: calc(var(--circle-radius)* var(--section-width-multiplier) / 12);
+          left: calc(var(--circle-radius)* var(--section-width-multiplier) / 5* 3);
+          top: 0%;
+        }
+
+        .fish {
+          top: 25%;
+          transform: scaleX(-100%);
+        }
+      }
+
+      &.trees-1 {
+        --section-number: 3;
+
+        .tree {
+          top: -30%;
+        }
+      }
+
+      &.savanna {
+        --section-number: 4;
+
+        .savanna-bg {
+          width: calc(var(--circle-radius)* var(--section-width-multiplier) / 5 * 2);
+          left: calc(var(--circle-radius)* var(--section-width-multiplier) / 4);
+          top: -24%;
+        }
+
+        .giraffe {
+          top: -18%;
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 11);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 7 * 2);
+        }
+
+        .ostrich {
+          top: 15%;
+          transform: scaleX(-100%);
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 5 * 3);
+        }
+      }
+
+      &.desert {
+        --section-number: 5;
+
+        .desert-bg {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3 * 2);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
+          top: -15%;
+        }
+
+        .camel {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 10);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 2);
+          top: -10%;
+        }
+      }
+
+      &.legendary {
+        --section-number: 6;
+
+        &.show {
+          .rainbow {
+            opacity: 1;
+            transform: rotate(0deg);
+            transition-delay: 0.5s;
+          }
+        }
+
+        .rainbow {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 3);
+          top: -25%;
+          transform: rotate(-180deg);
+          transform-origin: bottom center;
+          transition: all 1s;
+          transition-delay: 0;
+          opacity: 0;
+        }
+
+        .pond {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3 * 2);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
+          top: -5%;
+        }
+      }
+
+      &.jungle {
+        --section-number: 7;
+      }
+
+      &.forest {
+        --section-number: 8;
+      }
+
+      &.trees-2 {
+        --section-number: 9;
+
+        svg {          
+          top: -30%;
+        }
+      }
+
+      &.grassland {
+        --section-number: 10;
+      }
+
+      &.farm {
+        --section-number: 11;
+
+        .farm-bg {
+          left: calc(var(--circle-radius)* var(--section-width-multiplier) / 5);
+          top: -22%;
+        }
+      }
+
+      > * {
+        position: absolute;
+        left: calc(var(--circle-radius) * var(--section-width-multiplier) / 8 * 3);
+        width: calc(var(--circle-radius) * var(--section-width-multiplier) / 4);
       }
     }
   }
@@ -41,6 +226,37 @@
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    padding: 1rem;
+    padding: 0 2rem;
+
+    pointer-events: none;
+
+    button {
+      pointer-events: all;
+    }
   }
+}
+
+body.home .home-component {
+  display: block;
+}
+
+//TODO DELETE
+.animal-card-wrapper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 100vh;
+  padding: 2rem;
+  overflow-y: auto;
+
+  background-color: rgba(0,0,0,0.3);
+
+  z-index: 2;
+
+  gap: 1rem;
 }

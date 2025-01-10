@@ -1,32 +1,47 @@
-import { CorrectState, Difficulty, DomSelector, Operator } from '../enums';
+import {
+  CorrectState,
+  Difficulty,
+  DomSelector,
+  Operator,
+  ViewType,
+} from '../enums';
+import { StateService, ViewService } from '../services';
 
 import { BaseComponent } from './Base.component';
 import { DomHelper } from '../helpers/DomHelper';
 import { LevelSelectComponent } from './LevelSelect.component';
 import { Levels } from '../models';
-import { StateService } from '../services';
 import { combineLatest } from 'rxjs';
 
 export class HeaderComponent extends BaseComponent {
-  private menuButton?: HTMLButtonElement;
-  
+  private currentViewType?: ViewType;
+
   constructor() {
-    const parent = document.querySelector('main') as HTMLElement;
+    const parent = document.querySelector('.header-wrapper') as HTMLElement;
     super('header-component', parent, DomSelector.TEMPLATE_HEADER);
 
-    const operatorSymbol = this.component.querySelector('.operator-symbol') as HTMLDivElement;
-    operatorSymbol.addEventListener('click', this.openOperatorSelector.bind(this));
+    const operatorSymbol = this.component.querySelector(
+      '.operator-symbol',
+    ) as HTMLDivElement;
+    operatorSymbol.addEventListener(
+      'click',
+      this.openOperatorSelector.bind(this),
+    );
 
     this.subs.push(
       combineLatest([
         StateService.userZooCoins$,
         StateService.currentDifficulty$,
         StateService.currentOperator$,
-        StateService.userLevels$
+        StateService.userLevels$,
       ]).subscribe(([coins, difficulty, operator, levels]) => {
         this.animateBalance(coins);
         this.setLevel(operator, difficulty, levels);
-      })
+      }),
+    );
+
+    DomHelper.addEventListener('.menu > button', 'click', () =>
+      ViewService.closeCurrentView(),
     );
   }
 
@@ -58,12 +73,14 @@ export class HeaderComponent extends BaseComponent {
   }
 
   private openOperatorSelector() {
-    new LevelSelectComponent()
+    new LevelSelectComponent();
   }
 
   private setLevel(operator: Operator, difficulty: Difficulty, levels: Levels) {
     const progress = levels[operator][difficulty][CorrectState.CORRECT];
-    const progressEl = this.component.querySelector('progress') as HTMLProgressElement;
+    const progressEl = this.component.querySelector(
+      'progress',
+    ) as HTMLProgressElement;
     this.setOperator(operator);
 
     progressEl.value = progress % 10;
@@ -71,7 +88,11 @@ export class HeaderComponent extends BaseComponent {
   }
 
   private setOperator(operator: Operator) {
-    const operatorSymbol = this.component.querySelector('.operator-symbol') as HTMLDivElement;
-    operatorSymbol.className = `operator-symbol ${this.getOperatorClassname(operator)}`;
+    const operatorSymbol = this.component.querySelector(
+      '.operator-symbol',
+    ) as HTMLDivElement;
+    operatorSymbol.className = `operator-symbol ${this.getOperatorClassname(
+      operator,
+    )}`;
   }
 }

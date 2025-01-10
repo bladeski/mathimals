@@ -11,45 +11,63 @@ export class SumComponent extends BaseComponent {
   private confettiOptions: confetti.Options = {
     particleCount: 100,
     spread: 60,
-    ticks: 125
+    ticks: 125,
   };
 
   private reward = 0;
   private sum: Sum = new Sum();
-  
-  constructor(parent: HTMLElement) {
+
+  constructor() {
+    const parent = document.querySelector('.game-wrapper') as HTMLElement;
     super('sum-component', parent, DomSelector.TEMPLATE_SUM);
 
     this.subs.push(
       combineLatest([
         StateService.currentDifficulty$,
-        StateService.currentOperator$
+        StateService.currentOperator$,
       ]).subscribe(([difficulty, operator]) => {
         this.sum = new Sum(operator, difficulty);
 
-        DomHelper.updateTextContent('.summand1', this.sum.summands[0].toString(), this.component);
-        DomHelper.updateTextContent('.summand2', this.sum.summands[1].toString(), this.component);
-        DomHelper.updateTextContent('.operator', this.sum.operator, this.component);
+        DomHelper.updateTextContent(
+          '.summand1',
+          this.sum.summands[0].toString(),
+          this.component,
+        );
+        DomHelper.updateTextContent(
+          '.summand2',
+          this.sum.summands[1].toString(),
+          this.component,
+        );
+        DomHelper.updateTextContent(
+          '.operator',
+          this.sum.operator,
+          this.component,
+        );
 
         const options = this.component.querySelector('span.options');
         options?.replaceChildren();
-        
+
         this.sum.answers.forEach((answer, index) => {
           const answerEl = document.createElement('span');
           answerEl.className = `option-${index} card`;
           answerEl.textContent = answer.toString();
           options?.appendChild(answerEl);
 
-          DomHelper.addEventListener(`.option-${index}`, 'click', this.onClickOption.bind(this), this.component);
+          DomHelper.addEventListener(
+            `.option-${index}`,
+            'click',
+            this.onClickOption.bind(this),
+            this.component,
+          );
         });
 
         this.updateReward(50 * (this.sum.answers.length - 1));
-      })
+      }),
     );
   }
 
   private nextSum() {
-    new SumComponent(document.body);
+    new SumComponent();
     this.destroy();
   }
 
@@ -62,18 +80,20 @@ export class SumComponent extends BaseComponent {
         this.component.classList.remove('incorrect');
         StateService.updateZooCoins(this.reward);
         StateService.updateCurrentLevelCount(CorrectState.CORRECT);
-        confetti(this.confettiOptions)?.then(() => {
-          this.nextSum();
-        }).catch(err => {
-          console.log(err);
-          this.nextSum();
-        });
+        confetti(this.confettiOptions)
+          ?.then(() => {
+            this.nextSum();
+          })
+          .catch((err) => {
+            console.log(err);
+            this.nextSum();
+          });
       } else {
         this.component.classList.add('incorrect');
 
         this.updateReward(this.reward - 50);
         StateService.updateCurrentLevelCount(CorrectState.INCORRECT);
-        
+
         if (this.reward <= 0) {
           this.nextSum();
         }
@@ -83,6 +103,10 @@ export class SumComponent extends BaseComponent {
 
   private updateReward(reward: number) {
     this.reward = reward;
-    DomHelper.updateTextContent('.reward', `$${this.reward.toString()}`, this.component);
+    DomHelper.updateTextContent(
+      '.reward',
+      `$${this.reward.toString()}`,
+      this.component,
+    );
   }
 }

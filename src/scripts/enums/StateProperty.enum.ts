@@ -6,5 +6,5 @@ export enum StateProperty {
   ZOO_COINS = 'zooCoins',
   ZOO_NAME = 'zooName',
   CURRENT_OPERATOR = 'currentOperator',
-  CURRENT_DIFFICULTY = 'currentDifficulty'
+  CURRENT_DIFFICULTY = 'currentDifficulty',
 }

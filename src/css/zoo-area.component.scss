@@ -1,13 +1,48 @@
+@use 'sass:color';
+
 .zoo-area-component {
-  display: none;
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(0deg, var(--area-bg) 0%, var(--area-bg) 40%, transparent 40%);
 
   gap: $padding-standard;
 
   .enclosure {
+    position: relative;
     padding: $padding-large;
 
     border: 2px solid $primary-font-colour;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &.locked {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-color: color.scale($primary-font-colour, $alpha: -50%);
+      color: color.scale($primary-font-colour, $alpha: -50%);
+
+      .lock {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $info-colour;
+      }
+    }
+
+    .lock {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      font-size: 2rem;
+      width: 100%;
+      display: none;
+    }
   }
 
   .animal-list {
@@ -16,6 +51,7 @@
     top: 0;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     height: 100%;
     padding: $padding-large;
     overflow: auto;
@@ -31,6 +67,11 @@
   }
 }
 
-body.area .zoo-area-component {
-  display: flex;
+body.area,
+body.enclosure {
+  .header {
+    .menu {
+      display: block;
+    }
+  }
 }

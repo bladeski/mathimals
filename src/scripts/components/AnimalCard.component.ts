@@ -7,22 +7,45 @@ import { StateService } from '../services';
 
 export class AnimalCardComponent extends BaseComponent {
   private buyButton: HTMLButtonElement;
-  
-  constructor(private animal: Animal, private area: ZooArea, parent: HTMLElement) {
-    super('animal-card-component card', parent, DomSelector.TEMPLATE_ANIMAL_CARD);
+
+  constructor(
+    private animal: Animal,
+    private area: ZooArea,
+    parent: HTMLElement,
+  ) {
+    super(
+      'animal-card-component card',
+      parent,
+      DomSelector.TEMPLATE_ANIMAL_CARD,
+    );
 
     DomHelper.updateTextContent('.animal-name', animal.name, this.component);
     DomHelper.updateTextContent('.area-name', area.name, this.component);
     const image = this.component.querySelector('img') as HTMLImageElement;
-    image.src = `assets/animals${animal.id >= 1000 ? '/legendary' : ''}/${animal.id}.svg`;
+    image.src = `assets/animals${animal.id >= 1000 ? '/legendary' : ''}/${
+      animal.id
+    }.svg`;
 
-    const endangeredSpan = DomHelper.updateTextContent('.endangered-status', animal.endangeredStatus, this.component) as HTMLSpanElement;
+    const endangeredSpan = DomHelper.updateTextContent(
+      '.endangered-status',
+      animal.endangeredStatus,
+      this.component,
+    ) as HTMLSpanElement;
     endangeredSpan.classList.add(
-      getClassFromEndangeredStatus(animal.endangeredStatus)
+      getClassFromEndangeredStatus(animal.endangeredStatus),
     );
-    DomHelper.updateTextContent('span.cost', `Cost: $${animal.cost}`, this.component);
+    DomHelper.updateTextContent(
+      'span.cost',
+      `Cost: $${animal.cost}`,
+      this.component,
+    );
 
-    this.buyButton = DomHelper.addEventListener('button.buy-animal', 'click', this.buyAnimal.bind(this), this.component) as HTMLButtonElement;
+    this.buyButton = DomHelper.addEventListener(
+      'button.buy-animal',
+      'click',
+      this.buyAnimal.bind(this),
+      this.component,
+    ) as HTMLButtonElement;
   }
 
   destroy(): void {

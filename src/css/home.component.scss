@@ -1,6 +1,4 @@
 .home-component {
-  display: none;
-
   .sun {
     position: absolute;
     top: calc((var(--sun-radius) / -2) + 1rem);
@@ -62,6 +60,12 @@
       transform-origin: center calc(var(--circle-radius) * var(--section-height-multiplier));
       transform: rotate(calc(var(--section-number) * var(--section-angle)));
 
+      &:hover {
+        .area-name {
+          opacity: 1;
+        }
+      }
+
       &.play {
         --section-number: 0;
         // background: var(--grass-bg);
@@ -80,13 +84,13 @@
       &.polar {
         --section-number: 1;
 
-        .polar-bg {
+        .area-bg {
           width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3 * 2);
           left: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
           top: -12%;
         }
 
-        .polar-bear {
+        .area-fg {
           top: -15%;
         }
       }
@@ -94,42 +98,38 @@
       &.water {
         --section-number: 2;
 
-        .water-bg {
+        .area-bg {
           width: calc(var(--circle-radius)* var(--section-width-multiplier) / 12);
           left: calc(var(--circle-radius)* var(--section-width-multiplier) / 5* 3);
           top: 0%;
         }
 
-        .fish {
+        .area-fg {
           top: 25%;
           transform: scaleX(-100%);
         }
       }
 
-      &.trees-1 {
+      &.shop {
         --section-number: 3;
-
-        .tree {
-          top: -30%;
-        }
       }
 
       &.savanna {
         --section-number: 4;
 
-        .savanna-bg {
+        .area-bg {
           width: calc(var(--circle-radius)* var(--section-width-multiplier) / 5 * 2);
           left: calc(var(--circle-radius)* var(--section-width-multiplier) / 4);
           top: -24%;
         }
 
-        .giraffe {
+        .area-fg-67 {
           top: -18%;
           width: calc(var(--circle-radius) * var(--section-width-multiplier) / 11);
           left: calc(var(--circle-radius) * var(--section-width-multiplier) / 7 * 2);
         }
 
-        .ostrich {
+        .area-fg-24 {
           top: 15%;
           transform: scaleX(-100%);
           width: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
@@ -140,13 +140,13 @@
       &.desert {
         --section-number: 5;
 
-        .desert-bg {
+        .area-bg {
           width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3 * 2);
           left: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
           top: -15%;
         }
 
-        .camel {
+        .area-fg {
           width: calc(var(--circle-radius) * var(--section-width-multiplier) / 10);
           left: calc(var(--circle-radius) * var(--section-width-multiplier) / 2);
           top: -10%;
@@ -175,7 +175,7 @@
           opacity: 0;
         }
 
-        .pond {
+        .area-bg {
           width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3 * 2);
           left: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
           top: -5%;
@@ -184,37 +184,94 @@
 
       &.jungle {
         --section-number: 7;
+        
+        .area-bg {
+          width: calc(var(--circle-radius)* var(--section-width-multiplier) / 6 * 5);
+          left: calc(var(--circle-radius)* var(--section-width-multiplier) / 12);
+          top: -25%;
+        }
+
+        .area-fg-62 {
+          width: calc(var(--circle-radius)* var(--section-width-multiplier) / 5);
+          left: 60%;
+          transform: scaleX(-100%);
+        }
+
+        .area-fg-64 {
+          top: 30%;
+        }
       }
 
       &.forest {
         --section-number: 8;
+        
+        .area-bg {
+          width: calc(var(--circle-radius)* var(--section-width-multiplier) / 3* 2);
+          left: calc(var(--circle-radius)* var(--section-width-multiplier) / 6);
+          top: -30%;
+        }
+
+        .area-fg {
+          top: 10%;
+        }
       }
 
-      &.trees-2 {
+      &.settings {
         --section-number: 9;
 
-        svg {          
+        .area-bg {          
           top: -30%;
         }
       }
 
-      &.grassland {
+      &.grasslands {
         --section-number: 10;
+
+        .area-bg {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 6 * 5);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 12);
+          top: -13%;
+        }
+
+        .area-fg {
+          top: 10%;
+        }
       }
 
       &.farm {
         --section-number: 11;
 
-        .farm-bg {
-          left: calc(var(--circle-radius)* var(--section-width-multiplier) / 5);
-          top: -22%;
+        .area-bg {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 3 * 2);
+          left: calc(var(--circle-radius)* var(--section-width-multiplier) / 8);
+          top: -23%;
+        }
+
+        .area-fg {
+          width: calc(var(--circle-radius) * var(--section-width-multiplier) / 6);
+          left: calc(var(--circle-radius) * var(--section-width-multiplier) / 8 * 5);
+          top: 15%;
         }
       }
 
       > * {
         position: absolute;
-        left: calc(var(--circle-radius) * var(--section-width-multiplier) / 8 * 3);
         width: calc(var(--circle-radius) * var(--section-width-multiplier) / 4);
+        left: calc(var(--circle-radius) * var(--section-width-multiplier) / 8 * 3);
+      }
+
+      .area-name {
+        position: relative;
+        left: auto;
+        top: -30%;
+        width: auto;
+        text-align: center;
+        padding: 2rem 25%;
+        font-size: 2rem;
+        font-weight: 700;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        -webkit-text-stroke: 1px white;
       }
     }
   }
@@ -234,10 +291,29 @@
       pointer-events: all;
     }
   }
+
+  .zoo-mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(10px) saturate(0.8);
+  }
 }
 
-body.home .home-component {
-  display: block;
+body{
+  .home .home-component {
+    display: block;
+  }
+  &:not(.home) {
+    .home-component {
+      .zoo-mask {
+        display: block;
+      }
+    }
+  }
 }
 
 //TODO DELETE

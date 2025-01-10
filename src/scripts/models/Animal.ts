@@ -6,4 +6,4 @@ export type Animal = BasicType & {
   happiness: number;
   facts: string[];
   endangeredStatus: EndangeredStatus;
-}
+};

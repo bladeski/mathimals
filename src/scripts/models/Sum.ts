@@ -8,19 +8,33 @@ const AddSubMultipliers = {
 };
 
 const MultDivValidNumbers = {
-  [Difficulty.EASY]: [[1, 2, 10], [1, 2, 3, 4, 5, 6, 10]],
-  [Difficulty.MEDIUM]: [[3, 4, 5, 10], [3, 4, 5, 6, 10]],
-  [Difficulty.HARD]: [[5, 6, 7, 8, 9], [4, 5, 6, 7, 8, 9]],
-  [Difficulty.MASTER]: [[7, 8, 9, 11, 12], [6, 7, 8, 9, 11, 12]],
-}
+  [Difficulty.EASY]: [
+    [1, 2, 10],
+    [1, 2, 3, 4, 5, 6, 10],
+  ],
+  [Difficulty.MEDIUM]: [
+    [3, 4, 5, 10],
+    [3, 4, 5, 6, 10],
+  ],
+  [Difficulty.HARD]: [
+    [5, 6, 7, 8, 9],
+    [4, 5, 6, 7, 8, 9],
+  ],
+  [Difficulty.MASTER]: [
+    [7, 8, 9, 11, 12],
+    [6, 7, 8, 9, 11, 12],
+  ],
+};
 
 export class Sum {
   static generate(operator: Operator, difficulty: Difficulty): Sum {
-    const isPositiveSum = operator === Operator.ADDITION || operator === Operator.MULTIPLICATION;
-    const summands = this.generateSummands(operator, difficulty)
-      .sort((a, b) => {
+    const isPositiveSum =
+      operator === Operator.ADDITION || operator === Operator.MULTIPLICATION;
+    const summands = this.generateSummands(operator, difficulty).sort(
+      (a, b) => {
         return !isPositiveSum ? b - a : 0;
-      });
+      },
+    );
     const result = summands.reduce((prev, curr, index) => {
       if (index === 0) {
         return curr;
@@ -38,7 +52,9 @@ export class Sum {
     }, 0);
     const answers: number[] = [result];
     const variation = 3 + difficulty;
-    const min = isPositiveSum ? Math.max(...summands) : Math.max(0, result - variation);
+    const min = isPositiveSum
+      ? Math.max(...summands)
+      : Math.max(0, result - variation);
     const max = isPositiveSum ? result + variation : Math.min(...summands);
 
     const debug = {
@@ -46,14 +62,14 @@ export class Sum {
       variation,
       min,
       max,
-      options: [] as number[]
-    }
+      options: [] as number[],
+    };
 
-    for (let i = 0; i < (2 + difficulty); i++) {
+    for (let i = 0; i < 2 + difficulty; i++) {
       let answer = this.getRandomNumberInRange(min, max);
       let count = 0;
 
-      while (answers.some(a => a === answer) && count < 100) {
+      while (answers.some((a) => a === answer) && count < 100) {
         debug.options.push(answer);
         answer = this.getRandomNumberInRange(min, max);
         count++;
@@ -71,14 +87,21 @@ export class Sum {
       summands,
       operator,
       result,
-      answers: Array.from(new Set(answers))
-    }
+      answers: Array.from(new Set(answers)),
+    };
   }
 
-  private static generateSummands(operator: Operator, difficulty: Difficulty): number[] {
+  private static generateSummands(
+    operator: Operator,
+    difficulty: Difficulty,
+  ): number[] {
     const summands = [
-      MultDivValidNumbers[difficulty][0][Math.floor(Math.random() * MultDivValidNumbers[difficulty][0].length)],
-      MultDivValidNumbers[difficulty][1][Math.floor(Math.random() * MultDivValidNumbers[difficulty][1].length)],
+      MultDivValidNumbers[difficulty][0][
+        Math.floor(Math.random() * MultDivValidNumbers[difficulty][0].length)
+      ],
+      MultDivValidNumbers[difficulty][1][
+        Math.floor(Math.random() * MultDivValidNumbers[difficulty][1].length)
+      ],
     ];
     switch (operator) {
       case Operator.MULTIPLICATION:
@@ -87,8 +110,14 @@ export class Sum {
         return [summands[0] * summands[1], summands[0]];
       default:
         return [
-          this.getRandomNumberInRange(AddSubMultipliers[difficulty][0], AddSubMultipliers[difficulty][1]),
-          this.getRandomNumberInRange(AddSubMultipliers[difficulty][0], AddSubMultipliers[difficulty][1]),
+          this.getRandomNumberInRange(
+            AddSubMultipliers[difficulty][0],
+            AddSubMultipliers[difficulty][1],
+          ),
+          this.getRandomNumberInRange(
+            AddSubMultipliers[difficulty][0],
+            AddSubMultipliers[difficulty][1],
+          ),
         ];
     }
   }
@@ -103,27 +132,25 @@ export class Sum {
   result: number;
   summands: number[];
 
-  constructor(operator: Operator = Operator.ADDITION, difficulty: Difficulty = Difficulty.EASY) {
+  constructor(
+    operator: Operator = Operator.ADDITION,
+    difficulty: Difficulty = Difficulty.EASY,
+  ) {
     this.operator = operator;
     this.difficulty = difficulty;
     const sum = Sum.generate(operator, difficulty);
     this.answers = sum.answers;
     this.result = sum.result;
     this.summands = sum.summands;
-
   }
 
   toString() {
     let string = '';
     this.summands.forEach((summand, index) => {
-      string = `${string}${index > 0 ? ' ' + this.operator + ' ' : ''}${summand}`;
+      string = `${string}${
+        index > 0 ? ' ' + this.operator + ' ' : ''
+      }${summand}`;
     });
     return string;
   }
-
-
-
-
-
-
 }

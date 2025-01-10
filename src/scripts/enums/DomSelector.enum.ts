@@ -7,5 +7,5 @@ export enum DomSelector {
   TEMPLATE_HEADER = '#TemplateHeader',
   TEMPLATE_SUM = '#TemplateSum',
   TEMPLATE_LEVEL_SELECT = '#TemplateLevelSelect',
-  TEMPLATE_ZOO_AREA = '#TemplateZooArea'
+  TEMPLATE_ZOO_AREA = '#TemplateZooArea',
 }

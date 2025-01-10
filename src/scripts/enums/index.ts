@@ -1,4 +1,7 @@
-import { EndangeredStatus, getClassFromEndangeredStatus } from './EndangeredStatus.enum';
+import {
+  EndangeredStatus,
+  getClassFromEndangeredStatus,
+} from './EndangeredStatus.enum';
 
 import { CorrectState } from './CorrectState.enum';
 import { Difficulty } from './Difficulty.enum';
@@ -6,6 +9,7 @@ import { DomSelector } from './DomSelector.enum';
 import { GateOpen } from './GateOpen.enum';
 import { Operator } from './Operator.enum';
 import { StateProperty } from './StateProperty.enum';
+import { ViewType } from './ViewType.enum';
 
 export {
   CorrectState,
@@ -15,5 +19,6 @@ export {
   DomSelector,
   EndangeredStatus,
   GateOpen,
-  getClassFromEndangeredStatus
-}
+  ViewType,
+  getClassFromEndangeredStatus,
+};

@@ -15,5 +15,5 @@ export {
   ZooArea,
   Level,
   Levels,
-  Sum
-}
+  Sum,
+};

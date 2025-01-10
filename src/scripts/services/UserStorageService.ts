@@ -38,7 +38,7 @@ class UserStorageService {
       case StateProperty.CURRENT_OPERATOR:
         this.settings[key] = value as Operator;
         break;
-    
+
       default:
         break;
     }
@@ -46,15 +46,33 @@ class UserStorageService {
 
   private loadSettings() {
     return {
-      [StateProperty.DECORATIONS]: JSON.parse(localStorage.getItem(StateProperty.DECORATIONS) || '[]') as Decoration[],
-      [StateProperty.ZOO_AREAS]: JSON.parse(localStorage.getItem(StateProperty.ZOO_AREAS) || '[]') as ZooArea[],
-      [StateProperty.FOOD]: JSON.parse(localStorage.getItem(StateProperty.FOOD) || '0') as number,
-      [StateProperty.LEVELS]: JSON.parse(localStorage.getItem(StateProperty.LEVELS) || 'null') as Levels | null,
-      [StateProperty.ZOO_COINS]: JSON.parse(localStorage.getItem(StateProperty.ZOO_COINS) || '100') as number,
-      [StateProperty.ZOO_NAME]: JSON.parse(localStorage.getItem(StateProperty.ZOO_NAME) || '""') as string,
-      [StateProperty.CURRENT_DIFFICULTY]: JSON.parse(localStorage.getItem(StateProperty.CURRENT_DIFFICULTY) || `${Difficulty.EASY}`) as Difficulty,
-      [StateProperty.CURRENT_OPERATOR]: JSON.parse(localStorage.getItem(StateProperty.CURRENT_OPERATOR) || Operator.ADDITION) as Operator,
-    }
+      [StateProperty.DECORATIONS]: JSON.parse(
+        localStorage.getItem(StateProperty.DECORATIONS) || '[]',
+      ) as Decoration[],
+      [StateProperty.ZOO_AREAS]: JSON.parse(
+        localStorage.getItem(StateProperty.ZOO_AREAS) || '[]',
+      ) as ZooArea[],
+      [StateProperty.FOOD]: JSON.parse(
+        localStorage.getItem(StateProperty.FOOD) || '0',
+      ) as number,
+      [StateProperty.LEVELS]: JSON.parse(
+        localStorage.getItem(StateProperty.LEVELS) || 'null',
+      ) as Levels | null,
+      [StateProperty.ZOO_COINS]: JSON.parse(
+        localStorage.getItem(StateProperty.ZOO_COINS) || '100',
+      ) as number,
+      [StateProperty.ZOO_NAME]: JSON.parse(
+        localStorage.getItem(StateProperty.ZOO_NAME) || '""',
+      ) as string,
+      [StateProperty.CURRENT_DIFFICULTY]: JSON.parse(
+        localStorage.getItem(StateProperty.CURRENT_DIFFICULTY) ||
+          `${Difficulty.EASY}`,
+      ) as Difficulty,
+      [StateProperty.CURRENT_OPERATOR]: JSON.parse(
+        localStorage.getItem(StateProperty.CURRENT_OPERATOR) ||
+          Operator.ADDITION,
+      ) as Operator,
+    };
   }
 }
 

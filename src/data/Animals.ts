@@ -818,4 +818,12 @@ export const Animals: Animal[] = [
     facts: [],
     endangeredStatus: EndangeredStatus.NOT_EVALUATED,
   },
+  {
+    id: 1002,
+    name: 'Dragon',
+    cost: 1000,
+    happiness: 5,
+    facts: [],
+    endangeredStatus: EndangeredStatus.NOT_EVALUATED,
+  },
 ];

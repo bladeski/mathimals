@@ -11,5 +11,5 @@ export {
   HeaderComponent,
   HomeComponent,
   SumComponent,
-  ZooAreaComponent
-}
+  ZooAreaComponent,
+};

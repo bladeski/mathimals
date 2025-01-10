@@ -9,9 +9,12 @@ export class BaseComponent {
   protected subs: Subscription[] = [];
 
   private componentReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  
 
-  constructor(protected className: string, protected parentElement: HTMLElement, templateName: DomSelector) {
+  constructor(
+    protected className: string,
+    protected parentElement: HTMLElement,
+    templateName: DomSelector,
+  ) {
     this.componentReady$ = this.componentReady.asObservable();
     const component = DomHelper.getTemplate(templateName);
     this.component = document.createElement('div');
@@ -23,7 +26,7 @@ export class BaseComponent {
   }
 
   destroy() {
-    this.subs.forEach(sub => sub.unsubscribe());
+    this.subs.forEach((sub) => sub.unsubscribe());
     this.parentElement.removeChild(this.component);
   }
 }
